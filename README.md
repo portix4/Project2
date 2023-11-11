@@ -1,6 +1,7 @@
 # Project2 - Movies Web
 1) Planificación de endpoints:
 
+<<<<<<< HEAD
 | HTTP Method | URL Path                | Description                     | JSON |
 | ------------| ------------------------| ------------------------------- |------|
 | GET         | /                       | Home page                       |      |
