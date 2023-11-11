@@ -1,5 +1,10 @@
 # Project2 - Movies Web
-1) Planificación de endpoints:
+
+Este proyecto consiste en desarrollar una web que utilice apis externas, base de datos local y autenticación de usuario. 
+
+Hemos creado una web que trabaja con la api de películas y series. 
+
+- **Planificación de endpoints:**
 
 
 | HTTP Method | URL Path                    | Description                     | JSON |
@@ -26,7 +31,13 @@
 | POST        | /evento/crear               | Form. handler para crear evento |  ✅  |
 | POST        | /evento/{id_event}/eliminar | Form. handler eliminar evento   |  ✅  |
 
+- **Desarrollo del sistema Auth:**
 
+Cualquier persona que entre en la web va a poder hacer todo tipo de búsquedas. 
+
+Si te registras, el usuario podrá almacenar en su perfil las películas que le gusten, ver los perfiles de otros usuarios, editar y/o elimiar su propio perfil. También podrá crear eventos, para poder crear una comunidad con el resto de usuarios. 
+
+El Admin tendrá todos los permisos, para poder crear, editar y/o eliminar tanto usuarios como eventos. 
 
 
 
