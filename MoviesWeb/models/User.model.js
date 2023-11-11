@@ -19,10 +19,22 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true
+    },
+    favouritesmovies: {
+      type: [String],
+      required: true
+    },
+    role: {
+      type: String,
+      enum: ['ADMIN', 'USER'],
+      default: 'USER'
+    },
+    events: {
+      type: Schema.Types.ObjectId,
+      ref: 'Event'
     }
   },
   {
-    // this second object adds extra properties: `createdAt` and `updatedAt`    
     timestamps: true
   }
 );
