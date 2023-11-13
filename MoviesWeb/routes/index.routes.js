@@ -10,8 +10,11 @@ router.get("/", (req, res, next) => {
   movieService
     .getTrendingMovie()
     .then(movies => {
-      res.send(movies.data.results)
-      // res.render("index");
+      let fiveMovies = []
+      for (let i = 0; i < 6; i++) {
+        fiveMovies.push(movies.data.results[i])
+      }
+      res.render('index', { fiveMovies })
     })
     .catch(error => next(error))
 

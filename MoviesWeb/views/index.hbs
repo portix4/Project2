@@ -12,22 +12,47 @@
         <img class="d-block w-100" src="/images/marvelex.jpeg" alt="Tercera Imagen Nuevo Estreno">
     </div>
 </div>
-<a class="carousel-control-prev" href="#" role="button" data-slide="prev">
+
+
+{{!-- <a class="carousel-control-prev" href="#" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only"></span>
 </a>
-<a class="carousel-control-next" href="#" role="button" data-slide="next">
+<a class="carousel-control-next" href="/registro" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only"></span>
-</a>
+</a> --}}
+
+{{!-- esto esta mal, en principio tendrian que ser los botones del slider, pero son los botones de iniciar sesion y
+Registrarse --}}
+
 </div>
 <div class="container">
     <h1>Bienvenido a tu sitio web</h1>
-</div>
+    <a href="/registro">Registro</a>
+
+    <div class="trading mt-5">
+        <h2>Trading</h2>
+        <div class="row">
+            {{#each fiveMovies}}
+
+            <div class="col-md-2">
+                <article class="trading-card mb-5">
+                    <h4>{{this.title}}</h4>
+                    <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{this.poster_path}}"
+                        alt="poster-{{this.title}}">
+                    <a href="/movie/detalle/{{this.id}}" class="btn btn-info" role="button">More Info</a>
+                </article>
+
+            </div>
+
+            {{/each}}
+
+        </div>
+    </div>
 
 
 
-<div class="container">
-    <a href="/evento/crear">Crear Evento</a>
-    <a href="/registro">Crear usuario</a>
+
+
 </div>
