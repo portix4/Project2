@@ -1,0 +1,26 @@
+const axios = require('axios')
+
+class movieService {
+    constructor() {
+        this.axiosApp = axios.create({
+            baseURL: 'https://api.themoviedb.org/3/'
+        })
+        this.api_key = 'd7ff2504eb0b5a47fda46d49969cc42a'
+    }
+
+    getMovieById(movieId) {
+        return this.axiosApp.get(`movie/${movieId}?language=es-ES&api_key=${this.api_key}`)
+        // https://api.themoviedb.org/3/movie/575264?language=es-ES&api_key=d7ff2504eb0b5a47fda46d49969cc42a    
+    }
+
+    getMovieByName(movieName) {
+        return this.axiosApp.get(`search/movie?api_key=${this.api_key}&query=${movieName}&language=es`)
+        // https://api.themoviedb.org/3/search/movie?api_key=###&query=the+avengers
+    }
+
+
+}
+
+const moviesService = new movieService()
+
+module.exports = moviesService

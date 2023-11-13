@@ -16,8 +16,8 @@
          <a class="navbar-brand" href="/">
             <img src="/images/logofm.png" alt="Logo" width="290" height="50">
          </a>
-         <form class="d-flex w-50">
-            <input class="form-control ms-2" type="search" placeholder="Buscar peliculas">
+         <form class="d-flex w-50" action="/movie/search" method="POST">
+            <input class="form-control ms-2" type="search" placeholder="Buscar peliculas" id="title" name="title">
             <button class="btn btn-outline-info" type="submit">Buscar</button>
          </form>
          <div class="navbar-nav ms-5">
@@ -26,9 +26,6 @@
          </div>
       </div>
    </nav>
-   </nav>
-
-   <p>pablo es muy guapo</p>
 
    {{{body}}}
    <footer>© 2023 FlickMeet ❤️ IronHack 🔷w</footer>
