@@ -14,8 +14,7 @@ router.post("/search", (req, res) => {
         .then(movies => res.send(movies.data.results))
         .catch(error => next(error))
     // res.render("movies/movie-searchlist.hbs")
-    //hola
-    //hola
+
 })
 
 

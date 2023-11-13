@@ -14,8 +14,12 @@ class movieService {
     }
 
     getMovieByName(movieName) {
-        return this.axiosApp.get(`search/movie?api_key=${this.api_key}&query=${movieName}&language=es`)
-        // https://api.themoviedb.org/3/search/movie?api_key=###&query=the+avengers
+        return this.axiosApp.get(`search/movie?api_key=${this.api_key}&query=${movieName}&language=es-ES`)
+    }
+
+    getTrendingMovie() {
+        return this.axiosApp.get(`trending/movie/day?language=es-ES&api_key=${this.api_key}`)
+        // https://api.themoviedb.org/3/trending/movie/day?language=en-US
     }
 
 
