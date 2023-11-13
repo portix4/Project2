@@ -5,7 +5,6 @@ let myMap
 function initMap() {
     renderMap()
     getPlacesFromAPI()
-    autocomplete()
 }
 
 function renderMap() {
@@ -37,8 +36,4 @@ function printPlaceMarkers(places) {
             title: elm.name
         })
     })
-}
-
-function autocomplete() {
-
 }

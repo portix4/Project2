@@ -6,7 +6,7 @@ const Event = require('./../models/Event.model')
 router.get("/map", (req, res, next) => {
     Event
         .find()
-        .then(places => res.json(places))
+        .then(events => res.json(events))
         .catch(error => res.status(500).json({ message: 'Server issue:', errorDetails: error }))
 })
 

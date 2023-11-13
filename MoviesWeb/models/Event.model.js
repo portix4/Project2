@@ -3,7 +3,11 @@ const { Schema, model } = require('mongoose')
 
 const eventSchema = new Schema(
     {
-        movie: {
+        movieTitle: {
+            type: String,
+            required: true,
+        },
+        movieApiId: {
             type: String,
             required: true,
         },
@@ -25,8 +29,7 @@ const eventSchema = new Schema(
         },
         createdBy: {
             type: Schema.Types.ObjectId,
-            ref: 'User',
-            required: true
+            ref: 'User'
         },
         attendees: [{
             type: Schema.Types.ObjectId,

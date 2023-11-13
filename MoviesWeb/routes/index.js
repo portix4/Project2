@@ -9,5 +9,14 @@ module.exports = app => {
     const apiRouter = require("./api.routes")
     app.use('/api', apiRouter)
 
+    const userRouter = require("./user.routes")
+    app.use('/user', userRouter)
+
+    const authRouter = require("./auth.routes")
+    app.use('/', authRouter)
+
+    const movieRouter = require("./movie.routes")
+    app.use('/movie', movieRouter)
+
 }
 

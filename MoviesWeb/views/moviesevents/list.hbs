@@ -1,0 +1,27 @@
+<div class="container mt-5">
+    <h2>Listado eventos</h2>
+    <hr>
+
+    <figure id="myMap"></figure>
+
+    <div class="row">
+        {{#each event}}
+
+        <div class="col-md-4">
+            <article class="event-card mb-5">
+                <h4>{{movie}}</h4>
+                <hr>
+                <p>{{date}}</p>
+            </article>
+
+        </div>
+
+        {{/each}}
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/events-maps.js"></script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8pH6zIEOvvWQHRCqRVHiaspZ_KM6yDI8&callback=initMap"></script>
