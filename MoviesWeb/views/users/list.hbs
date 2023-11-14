@@ -1,0 +1,17 @@
+<div class="container">
+    <h2>Users</h2>
+    <hr>
+    <div class="row">
+        {{#each users}}
+
+        <div class="col-md-3 mb-3 user-card">
+            {{!-- <figure class="user-card ">
+                <img src="{{cover}}" alt="{{title}}">
+                <figcaption>{{title}}</figcaption>
+                <p>{{description}}</p>
+            </figure> --}}
+            <a href="/user/{{id}}">{{username}}</a>
+        </div>
+        {{/each}}
+    </div>
+</div>
