@@ -6,14 +6,17 @@ const axios = require('axios')
 const movieService = require("./../services/movies.services")
 
 router.get("/", (req, res, next) => {
-  res.render("index")
-  // movieService
-  //   .getTrendingMovie()
-  //   .then(movies => {
-  //     res.send(movies.data.results)
-  //     // res.render("index");
-  //   })
-  //   .catch(error => next(error))
+
+  movieService
+    .getTrendingMovie()
+    .then(movies => {
+      let fiveMovies = []
+      for (let i = 0; i < 6; i++) {
+        fiveMovies.push(movies.data.results[i])
+      }
+      res.render('index', { fiveMovies })
+    })
+    .catch(error => next(error))
 
 });
 

@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 
+
 const userSchema = new Schema(
   {
     username: {
@@ -20,7 +21,8 @@ const userSchema = new Schema(
       required: true
     },
     photo: {
-      type: String
+      type: String,
+      default: ""
     },
     favouritesmovies: {
       type: [String],
