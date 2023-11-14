@@ -16,7 +16,15 @@ router.post("/search", (req, res) => {
     // res.render("movies/movie-searchlist.hbs")
 })
 
+router.get("/detalle/:movie_id", (req, res, next) => {
+    const { movie_id } = req.params;
 
+    movieService
+        .getMovieById(movie_id)
+        // .then(movie => console.log(movie.data))
+        .then((movieDet) => res.render("movies/movie-overview.hbs", movieDet.data))
+        .catch(error => next(error));
+});
 
 
 module.exports = router
