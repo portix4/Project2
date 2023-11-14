@@ -15,6 +15,8 @@ const projectName = "MoviesWeb";
 
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 
+require('./config/session.config')(app)
+
 require("./routes")(app)
 
 require("./error-handling")(app);
