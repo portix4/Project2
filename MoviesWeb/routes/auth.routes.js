@@ -71,7 +71,7 @@ router.post(('/iniciar-sesion'), (req, res, next) => {
         .catch(error => next(error))
 })
 
-router.post(('cerrar-sesion'), (req, res, next) => {
+router.post(('/cerrar-sesion'), (req, res, next) => {
     req.session.destroy(() => res.redirect('/iniciar-sesion'))
 })
 
