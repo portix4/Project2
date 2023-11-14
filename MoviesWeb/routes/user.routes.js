@@ -3,7 +3,7 @@ const router = express.Router()
 
 const User = require('./../models/User.model')
 
-const { isLoggedIn, isLoggedOut, checkRole } = require('./../middleware/route-guard')
+const { isLoggedIn, isLoggedOut, checkUser } = require('./../middleware/route-guard')
 
 router.get(('/'), isLoggedIn, (req, res, next) => {
     User
@@ -23,6 +23,34 @@ router.get(('/:id'), isLoggedIn, (req, res, next) => {
             isAdmin: req.session.currentUser.role === 'ADMIN',
             isUser: req.session.currentUser._id === id
         }))
+        .catch(error => next(error))
+})
+
+router.get(('/:id/editar'), isLoggedIn, checkUser('ADMIN'), (req, res, next) => {
+    const { id } = req.params
+    User
+        .findById(id)
+        .then(user => res.render(('users/edit'), user))
+        .catch(error => next(error))
+})
+
+router.post(('/:id/editar'), isLoggedIn, checkUser('ADMIN'), (req, res, next) => {
+    const { username, email, description } = req.body
+
+    console.log(description)
+
+    const { id } = req.params
+    User
+        .findByIdAndUpdate(id, { username, email, description })
+        .then(() => res.redirect('/user'))
+        .catch(error => next(error))
+})
+
+router.post(('/:id/eliminar'), isLoggedIn, checkUser('ADMIN'), (req, res, next) => {
+    const { id } = req.params
+    User
+        .findByIdAndDelete(id)
+        .then(() => res.redirect('/user'))
         .catch(error => next(error))
 })
 
