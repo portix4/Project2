@@ -11,10 +11,9 @@ router.post("/search", (req, res) => {
 
     movieService
         .getMovieByName(title)
-        .then(movies => res.send(movies.data.results))
+        .then((movies) => res.render("movies/movie-searchlist.hbs", { movies: movies.data.results }))
         .catch(error => next(error))
     // res.render("movies/movie-searchlist.hbs")
-
 })
 
 

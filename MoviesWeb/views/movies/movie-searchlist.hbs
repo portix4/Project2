@@ -1,10 +1,18 @@
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="img/SOURCE" alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">{{Title}}</h5>
-        <p class="card-text">Descripcion</p>
-    </div>
-    <div class="card-body">
-        <a href="#" class="btn btn-outline-dark" role="button">Ver Detalles</a>
+<div class="container mt-4">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        {{#each movies}}
+        <div class="col">
+            <div class="card bg-transparent h-75 border-0">
+                <img class="card-img-top" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{poster_path}}"
+                    alt="Card image cap">
+                <div class="card-body text-center">
+                    <h6 class="card-title">{{title}}</h6>
+                </div>
+                <div class="card-footer bg-transparent border-0 text-center">
+                    <a href="#" class="btn btn-outline-info" role="button">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
     </div>
 </div>

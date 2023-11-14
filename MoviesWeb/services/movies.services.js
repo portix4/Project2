@@ -22,6 +22,13 @@ class movieService {
         // https://api.themoviedb.org/3/trending/movie/day?language=en-US
     }
 
+    getHeaderBillboard() {
+        return this.axiosApp.get(`movie/now_playing?language=es-ES&api_key=${this.api_key}`)
+        // https://api.themoviedb.org/3/movie/now_playing?language=es-ES&page=1' \
+
+    }
+
+
 
 }
 
