@@ -6,21 +6,34 @@
                     alt="...">
                 <hr>
                 <div class="d-flex justify-content-between">
-                    <a class="btn btn-dark btn-md btn-block" href="#" role="button">+ favoritos</a>
+                    <form action="/user/favourite/{{id}}" method="POST">
+                        <button type="submit" class="btn btn-dark btn-md btn-block">+ favoritos </button>
+                    </form>
                     <a class="btn btn-dark btn-md btn-block" href="#" role="button">Crear Evento</a>
                 </div>
-                <p>Genero:</p>
-                {{#each genres}}
-                {{this.name}},
-                {{/each}}
             </div>
             <div class="col-md-8">
-                <h1 class="card-title">{{original_title}}</h1>
+                <h1 class="card-title">
+                    <p class="text-uppercase">{{original_title}}</p>
+                </h1>
+                <div class="d-inline-flex ms-2 gap-2">
+                    {{#each genres}}
+                    <p class="descriptionMovie">{{name}} ·</p>
+                    {{/each}}
+
+                    <span class="bold">Estreno:</span>{{release_date}}
+
+                </div>
+
                 <div class="card-body">
+                    <h5>Descripción</h5>
                     <p class="card-text">{{overview}}</p>
                 </div>
+                <div class="container">
+                    <h6>Contenido disponible en:</h6>
+                </div>
+
             </div>
         </div>
     </div>
-</div>
 </div>

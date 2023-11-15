@@ -62,3 +62,15 @@ footer {
   font-size: 24px;
   font-weight: bold;
 }
+
+p.descriptionMovie {
+  font-style: italic;
+}
+
+span.bold {
+  font-weight: bold;
+}
+
+span.arrowsect {
+  color: #51D5E8;
+}
