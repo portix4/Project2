@@ -42,51 +42,6 @@ router.get(('/:id'), isLoggedIn, (req, res, next) => {
         .catch(error => next(error))
 })
 
-// ESTO ES UNA PRIMERA TENTATIVA, ESTA CERCA, PERO NO
-// const array = []
-// let newUser
-// let newMovies
-
-// User
-//     .findById(id)
-//     .then(user => newUser = user)
-//     .catch(error => next(error))
-
-// newUser.favouritesmovies.forEach(element => {
-//     movieService
-//         .getMovieById(element)
-//         .then(movies => newMovies = movies)
-//         .catch(error => next(error))
-// })
-
-// const promises = [newUser, newMovies]
-
-// Promise
-//     .all(promises)
-//     .then(response => {
-//         const newUser2 = response[0]
-//         const newMovie2 = response[1]
-
-//         res.render('users/profile', {
-//             newUser2,
-//             newMovie2,
-//             isAdmin: req.session.currentUser.role === 'ADMIN',
-//             isUser: req.session.currentUser._id === id
-//         })
-//             .catch(err => next(err))
-//     })
-
-// ESTO ES LA BASE, QUE FUNCIONA    
-// User 
-//     .findById(id)
-//     .then(user => res.render('users/profile', {
-//         user,
-//         isAdmin: req.session.currentUser.role === 'ADMIN',
-//         isUser: req.session.currentUser._id === id
-//     }))
-//     .catch(error => next(error))
-
-
 
 router.get(('/:id/editar'), isLoggedIn, checkUser('ADMIN'), (req, res, next) => {
     const { id } = req.params
