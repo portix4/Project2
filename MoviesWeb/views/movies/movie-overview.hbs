@@ -6,7 +6,9 @@
                     alt="...">
                 <hr>
                 <div class="d-flex justify-content-between">
-                    <a class="btn btn-dark btn-md btn-block" href="#" role="button">+ favoritos</a>
+                    <form action="/user/favourite/{{id}}" method="POST">
+                        <button type="submit" class="btn btn-dark btn-md btn-block">+ favoritos </button>
+                    </form>
                     <a class="btn btn-dark btn-md btn-block" href="#" role="button">Crear Evento</a>
                 </div>
                 <p>Genero:</p>
