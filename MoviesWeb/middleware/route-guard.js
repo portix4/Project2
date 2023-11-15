@@ -24,8 +24,19 @@ const checkRole = (...admitedRoles) => (req, res, next) => {
     }
 }
 
+const checkUser = (...users) => (req, res, next) => {
+    const { role } = req.session.currentUser
+    const { id } = req.params
+    if (users.includes(role) || req.session.currentUser._id === id) {
+        next()
+    } else {
+        res.redirect('/iniciar-sesion')
+    }
+}
+
 module.exports = {
     isLoggedIn,
     isLoggedOut,
     checkRole,
+    checkUser
 }

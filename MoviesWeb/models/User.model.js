@@ -25,8 +25,7 @@ const userSchema = new Schema(
       default: ""
     },
     favouritesmovies: {
-      type: [String],
-      // required: true
+      type: [Number],
     },
     role: {
       type: String,
