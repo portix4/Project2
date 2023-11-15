@@ -28,7 +28,10 @@ class movieService {
 
     }
 
-
+    getTrendingSeries() {
+        return this.axiosApp.get(`trending/tv/day?language=es-ES&api_key=${this.api_key}`)
+        // https://api.themoviedb.org/3/trending/tv/day?language=es-ES&api_key=d7ff2504eb0b5a47fda46d49969cc42a
+    }
 
 }
 

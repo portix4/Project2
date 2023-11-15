@@ -47,3 +47,26 @@
 
         </div>
     </div>
+    <div class="container">
+        <div class="trading mt-5">
+            <h2>Series en tendencia <span class="arrowsect"> ></span></h2>
+            <div class="row">
+                {{#each tvShows}}
+                <div class="col-md-2">
+                    <div class="card bg-transparent h-75 border-0">
+                        <img class="card-img-top"
+                            src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{poster_path}}"
+                            alt="poster-{{this.title}}">
+                        <div class="card-body text-center">
+                            <h6 class="card-title">{{name}}</h6>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 text-center">
+                            <a href="/movie/detalle/{{this.id}}" class="btn btn-outline-info" role="button">Ver
+                                Detalles</a>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+
+            </div>
+        </div>
