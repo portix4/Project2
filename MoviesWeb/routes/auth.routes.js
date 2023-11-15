@@ -13,7 +13,6 @@ router.post("/registro", uploaderMiddleware.single('photo'), (req, res, next) =>
 
     const { username, email, password } = req.body
     const { path: photo } = req.file
-    //     console.log(photo)}}
 
     if (req.file !== undefined) {
         const { path: photo } = req.file
@@ -27,9 +26,8 @@ router.post("/registro", uploaderMiddleware.single('photo'), (req, res, next) =>
 
     Promise
         .all(promises)
-        .then(response => {
-            const checkuser = response[0]
-            const checkemail = response[1]
+        .then(([checkuser, checkemail]) => {
+
             if (checkuser) {
                 res.render('auth/signup', { errorMessage: 'Nick en uso' })
                 return

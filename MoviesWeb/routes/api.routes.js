@@ -3,7 +3,8 @@ const router = express.Router()
 
 const Event = require('./../models/Event.model')
 
-router.get("/map", (req, res, next) => {
+router.get("/map", (req, res) => {
+
     Event
         .find()
         .then(events => res.json(events))

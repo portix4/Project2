@@ -1,0 +1,26 @@
+<div class="container mt-5">
+    <h2>Detalle evento</h2>
+    <hr>
+
+
+
+    <div>
+        <h3>Película: {{movieTitle}}</h3>
+        <p>Lugar del evento: {{place}}</p>
+        <time datetime="{{date}}">{{date}}</time>
+
+        <p>Descripción del evento: {{description}}</p>
+
+        <a href="/user/{{createdBy.id}}">
+            <p>Created by {{createdBy.username}}</p>
+        </a>
+
+        <p>Asistentes al evento</p>
+        <ul>
+            {{#each attendees}}
+            <li>{{this.username}}</li>
+            {{/each}}
+        </ul>
+    </div>
+
+</div>

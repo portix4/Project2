@@ -17,7 +17,7 @@ class movieService {
         return this.axiosApp.get(`search/movie?api_key=${this.api_key}&query=${movieName}&language=es-ES`)
     }
 
-    getTrendingMovie() {
+    getTrendingMovies() {
         return this.axiosApp.get(`trending/movie/day?language=es-ES&api_key=${this.api_key}`)
         // https://api.themoviedb.org/3/trending/movie/day?language=en-US
     }

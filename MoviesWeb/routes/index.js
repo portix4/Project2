@@ -17,6 +17,4 @@ module.exports = app => {
 
     const movieRouter = require("./movie.routes")
     app.use('/movie', movieRouter)
-
 }
-
