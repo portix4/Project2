@@ -28,9 +28,9 @@ class movieService {
 
     }
 
-    getTrendingSeries() {
-        return this.axiosApp.get(`trending/tv/day?language=es-ES&api_key=${this.api_key}`)
-        // https://api.themoviedb.org/3/trending/tv/day?language=es-ES  \
+    getTopRatedMovies() {
+        return this.axiosApp.get(`/movie/top_rated?language=es-ES&api_key=${this.api_key}`)
+        // https://api.themoviedb.org/3/movie/top_rated?language=es-ES&page=1        
     }
 
     getUpcomingMedia() {

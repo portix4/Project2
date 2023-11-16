@@ -45,11 +45,6 @@
     </div>
 </div>
 
-
-
-
-
-
 <div class="container">
     <div class="trading mt-5">
         <h2>Cine en tendencia <span class="arrowsect"> ></span></h2>
@@ -58,14 +53,11 @@
 
             <div class="col-md-2">
                 <div class="card bg-transparent h-75 border-0">
-                    <img class="card-img-top" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{poster_path}}"
-                        alt="poster-{{this.title}}">
+                    <a href="/movie/detalle/{{this.id}}"><img class="card-img-top"
+                            src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{poster_path}}"
+                            alt="poster-{{this.title}}"></a>
                     <div class="card-body text-center">
                         <h6 class="card-title">{{title}}</h6>
-                    </div>
-                    <div class="card-footer bg-transparent border-0 text-center">
-                        <a href="/movie/detalle/{{this.id}}" class="btn btn-outline-info" role="button">Ver
-                            Detalles</a>
                     </div>
                 </div>
             </div>
@@ -74,49 +66,45 @@
 
         </div>
     </div>
-    <div class="container">
-        <div class="trading mt-5">
-            <h2>Series en tendencia <span class="arrowsect"> ></span></h2>
-            <div class="row">
-                {{#each tvShows}}
-                <div class="col-md-2">
-                    <div class="card bg-transparent h-75 border-0">
-                        <img class="card-img-top"
+</div>
+<div class="container">
+    <div class="trading mt-5">
+        <h2>Top Rated Movies <span class="arrowsect"> ></span></h2>
+        <div class="row">
+            {{#each topRated}}
+
+            <div class="col-md-2">
+                <div class="card bg-transparent h-75 border-0">
+                    <a href="/movie/detalle/{{this.id}}"><img class="card-img-top"
                             src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{poster_path}}"
-                            alt="poster-{{this.title}}">
-                        <div class="card-body text-center">
-                            <h6 class="card-title">{{name}}</h6>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 text-center">
-                            <a href="/movie/detalle/{{this.id}}" class="btn btn-outline-info" role="button">Ver
-                                Detalles</a>
-                        </div>
+                            alt="poster-{{this.title}}"></a>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">{{title}}</h6>
                     </div>
                 </div>
-                {{/each}}
-
             </div>
+
+            {{/each}}
+
         </div>
-        <div class="container">
-            <div class="trading mt-5">
-                <h2>Proximamemente <span class="arrowsect"> ></span></h2>
-                <div class="row">
-                    {{#each upcomingMedia}}
-                    <div class="col-md-2">
-                        <div class="card bg-transparent h-75 border-0">
-                            <img class="card-img-top"
-                                src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{poster_path}}"
-                                alt="poster-{{this.title}}">
-                            <div class="card-body text-center">
-                                <h6 class="card-title">{{name}}</h6>
-                            </div>
-                            <div class="card-footer bg-transparent border-0 text-center">
-                                <a href="/movie/detalle/{{this.id}}" class="btn btn-outline-info" role="button">Ver
-                                    Detalles</a>
-                            </div>
-                        </div>
+    </div>
+</div>
+<div class="container mb-5">
+    <div class="trading mt-5">
+        <h2>Proximamemente <span class="arrowsect"> ></span></h2>
+        <div class="row">
+            {{#each upcomingMedia}}
+            <div class="col-md-2">
+                <div class="card bg-transparent h-75 border-0">
+                    <a href="/movie/detalle/{{this.id}}"><img class="card-img-top"
+                            src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{poster_path}}"
+                            alt="poster-{{this.title}}"></a>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">{{title}}</h6>
                     </div>
-                    {{/each}}
-
                 </div>
             </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

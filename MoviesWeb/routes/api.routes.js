@@ -1,15 +1,10 @@
 const express = require('express')
 const router = express.Router()
 
-const Event = require('./../models/Event.model')
+const { getApi } = require('./../controllers/api.controllers')
 
-router.get("/map", (req, res) => {
 
-    Event
-        .find()
-        .then(events => res.json(events))
-        .catch(error => res.status(500).json({ message: 'Server issue:', errorDetails: error }))
-})
+router.get("/map", getApi)
 
 module.exports = router
 

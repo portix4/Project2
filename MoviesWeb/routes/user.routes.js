@@ -4,7 +4,7 @@ const router = express.Router()
 const User = require('./../models/User.model')
 const movieService = require('./../services/movies.services')
 
-const { isLoggedIn, isLoggedOut, checkUser } = require('./../middleware/route-guard')
+const { isLoggedIn, checkUser } = require('./../middleware/route-guard')
 
 router.get(('/'), isLoggedIn, (req, res, next) => {
 
@@ -83,7 +83,7 @@ router.post('/favourite/:idmovie', isLoggedIn, (req, res, next) => {
     const { idmovie: favouritesmovies } = req.params
 
     User
-        .findByIdAndUpdate(userID, { $push: { favouritesmovies } })
+        .findByIdAndUpdate(userID, { $addToSet: { favouritesmovies } })
         .then(() => res.redirect(`/movie/detalle/${favouritesmovies}`))
         .catch(error => next(error))
 })

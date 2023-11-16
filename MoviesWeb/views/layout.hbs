@@ -21,11 +21,26 @@
             <button class="btn btn-outline-info ms-1" type="submit">Buscar</button>
          </form>
          <div class="navbar-nav ms-5">
+            {{#unless user}}
             <a class="btn btn-outline-info ms-1" href="/iniciar-sesion">Iniciar Sesión</a>
+            <a class="btn btn-outline-info ms-1" href="/registro">Registrarse</a>
+            {{/unless}}
+
+            {{#if user}}
+            <div class="dropdown">
+               <button class="btn btn-outline-info dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Zona usuario
+               </button>
+               <ul class="dropdown-menu">
+                  <li><a class="dropdown-item " href="/user">Usuarios</a></li>
+                  <li><a class="dropdown-item" href="/evento/listado">Eventos</a></li>
+               </ul>
+            </div>
             <form action="/cerrar-sesion" method="POST">
                <button type="submit" class="btn btn-outline-info ms-1">Cerrar Sesión </button>
             </form>
-            <a class="btn btn-outline-info ms-1" href="/registro">Registrarse</a>
+            {{/if}}
          </div>
       </div>
    </nav>

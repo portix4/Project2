@@ -11,6 +11,9 @@ const capitalize = require("./utils/capitalize")
 const projectName = "MoviesWeb"
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`
 
+const layout = require("./middleware/layout")
+app.use(layout)
+
 require("./routes")(app)
 require("./error-handling")(app)
 
