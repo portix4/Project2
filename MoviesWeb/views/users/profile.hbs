@@ -18,35 +18,13 @@
             {{/if}}
         </div>
         <div class="col-md-8">
-<<<<<<< HEAD
-
-=======
-            <h2>{{newUser.username}}</h2>
->>>>>>> bae14217c1f85e753860a099faeedf056140eb6c
             <h3>Películas Favoritas</h3>
             <ul>
                 {{#each newMovies}}
                 <li><a href="/movie/detalle/{{id}}" target="_blank">{{original_title}}</a></li>
                 {{/each}}
             </ul>
-<<<<<<< HEAD
-
-=======
-            {{#if isAdmin}}
-            <a href="/user/{{newUser._id}}/editar" class="btn btn-warning gap-3">Editar perfil</a>
-            <form action="/user/{{newUser._id}}/eliminar" method="POST">
-                <input type="submit" value="Borrar perfil" class="btn btn-danger gap-3 mt-2">
-            </form>
-            {{/if}}
-            {{#if isUser}}
-            <a href="/user/{{newUser._id}}/editar" class="btn btn-warning gap-3">Editar perfil</a>
-            {{/if}}
->>>>>>> bae14217c1f85e753860a099faeedf056140eb6c
         </div>
 
     </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> bae14217c1f85e753860a099faeedf056140eb6c
 </div>

@@ -21,16 +21,9 @@ class movieService {
         return this.axiosApp.get(`movie/now_playing?language=es-ES&api_key=${this.api_key}`)
         // https://api.themoviedb.org/3/movie/now_playing?language=es-ES&page=1' \
     }
-<<<<<<< HEAD
     getTopRatedMovies() {
         return this.axiosApp.get(`/movie/top_rated?language=es-ES&api_key=${this.api_key}`)
         // https://api.themoviedb.org/3/movie/top_rated?language=es-ES&page=1
-=======
-
-    getTopRatedMovies() {
-        return this.axiosApp.get(`/movie/top_rated?language=es-ES&api_key=${this.api_key}`)
-        // https://api.themoviedb.org/3/movie/top_rated?language=es-ES&page=1        
->>>>>>> bae14217c1f85e753860a099faeedf056140eb6c
     }
     getUpcomingMedia() {
         return this.axiosApp.get(`movie/upcoming?language=es-ES&page=1&region=ES&api_key=${this.api_key}`)
