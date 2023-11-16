@@ -1,17 +1,20 @@
-<div class="container">
-    <h2>Users</h2>
-    <hr>
+<div class="container pt-5">
     <div class="row">
-        {{#each users}}
+        <div class="col-md-12">
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span class="bold">USUARIOS</span>
+                </li>
 
-        <div class="col-md-3 mb-3 user-card">
-            {{!-- <figure class="user-card ">
-                <img src="{{cover}}" alt="{{title}}">
-                <figcaption>{{title}}</figcaption>
-                <p>{{description}}</p>
-            </figure> --}}
-            <a href="/user/{{id}}">{{username}}</a>
+                {{#each users}}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div class="col-md-10">{{username}}</div>
+                    <div class="col-md-10">
+                        <a href="/user/{{id}}" class="btn btn-info">🔍︎ Consultar usuario</a>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
         </div>
-        {{/each}}
     </div>
 </div>
