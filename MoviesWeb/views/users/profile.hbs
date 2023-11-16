@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-4">
@@ -26,4 +27,40 @@
         </div>
     </div>
 </div>
+=======
+<div class="container">
+    <h2>Detalles de perfil</h2>
+    <hr>
+    <table class="table">
+        <tr>
+            <td>
+                Nombre: {{newUser.username}}
+            </td>
+            <td>
+                Pelis favoritas:
+                <ul>
+                    {{#each newMovies}}
+                    <li><a href="/movie/detalle/{{id}}" target="_blank">{{original_title}}</a></li>
+                    {{/each}}
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+    <figure>
+        <img src="{{newUser.photo}}" alt="UserPhoto">
+    </figure>
+
+    {{#if isAdmin}}
+    <a href="/user/{{newUser._id}}/editar" class="btn btn-warning gap-3">Editar perfil</a>
+    <form action="/user/{{newUser._id}}/eliminar" method="POST">
+        <input type="submit" value="Borrar perfil" class="btn btn-danger gap-3 mt-2">
+    </form>
+    {{/if}}
+
+    {{#if isUser}}
+    <a href="/user/{{newUser._id}}/editar" class="btn btn-warning gap-3">Editar perfil</a>
+    {{/if}}
+
+>>>>>>> b7c5ceb5d949b8e68962a8f947b3ff3f631d2896
 </div>

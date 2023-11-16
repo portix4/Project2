@@ -1,10 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const axios = require('axios')
-
 const movieService = require("./../services/movies.services")
-
-const Event = require('./../models/User.model')
 
 router.post("/search", (req, res) => {
 
@@ -14,7 +10,6 @@ router.post("/search", (req, res) => {
         .getMovieByName(title)
         .then((movies) => res.render("movies/movie-searchlist.hbs", { movies: movies.data.results }))
         .catch(error => next(error))
-    // res.render("movies/movie-searchlist.hbs")
 })
 
 
