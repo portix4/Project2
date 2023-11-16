@@ -11,6 +11,9 @@ const eventSchema = new Schema(
             type: String,
             required: true,
         },
+        moviePoster: {
+            type: String,
+        },
         place: {
             type: String
         },

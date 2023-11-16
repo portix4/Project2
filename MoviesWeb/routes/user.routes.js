@@ -9,7 +9,7 @@ const { isLoggedIn, isLoggedOut, checkUser } = require('./../middleware/route-gu
 router.get(('/'), isLoggedIn, (req, res, next) => {
 
     User
-        .find()
+        .find({ role: 'USER' })
         .then(users => {
             res.render('users/list', { users })
         })
@@ -19,49 +19,27 @@ router.get(('/'), isLoggedIn, (req, res, next) => {
 
 router.get(('/:id'), isLoggedIn, (req, res, next) => {
 
-    // TODO: RESOLVER CORRECTAMENTE
     const { id } = req.params
     const newMovies = []
-    let user
+    let newUser
 
     User
         .findById(id)
         .then(user => {
-            user = user
-            const moviesmap = user.favouritesmovies.map(e => {
-                return movieService
-                    .getMovieById(e)
-                    .then(movies => newMovies.push(movies.data))
-                    .catch(error => next(error))
-            })
+            newUser = user
+            const moviesmap = user.favouritesmovies.map(movieId => movieService.getMovieById(movieId))
             return Promise.all(moviesmap)
-                .then(() => {
-                    res.render('users/profile', {
-                        user,
-                        newMovies,
-                        isAdmin: req.session.currentUser.role === 'ADMIN',
-                        isUser: req.session.currentUser._id === id
-                    })
-                })
-
+        })
+        .then(response => {
+            response.map(elm => newMovies.push(elm.data))
+            res.render('users/profile', {
+                newUser,
+                newMovies,
+                isAdmin: req.session.currentUser.role === 'ADMIN',
+                isUser: req.session.currentUser._id === id
+            })
         })
         .catch(error => next(error))
-
-    // User
-    //     .findById(id)
-    //     .then(user => {
-    //         const moviesmap = user.favouritesmovies.map(movieId => movieService.getMovieById(movieId))
-    //         return Promise.all(moviesmap)
-    //     })
-    //     .then(response => {
-    //         res.render('users/profile', {
-    //             user,
-    //             response,
-    //             isAdmin: req.session.currentUser.role === 'ADMIN',
-    //             isUser: req.session.currentUser._id === id
-    //         })
-    //     })
-    //     .catch(error => next(error))
 })
 
 
@@ -106,7 +84,7 @@ router.post('/favourite/:idmovie', isLoggedIn, (req, res, next) => {
 
     User
         .findByIdAndUpdate(userID, { $push: { favouritesmovies } })
-        .then(() => res.redirect(`/movie/detalle/${idmovie}`))
+        .then(() => res.redirect(`/movie/detalle/${favouritesmovies}`))
         .catch(error => next(error))
 })
 

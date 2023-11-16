@@ -4,7 +4,7 @@
     <table class="table">
         <tr>
             <td>
-                Nombre: {{user.username}}
+                Nombre: {{newUser.username}}
             </td>
             <td>
                 Pelis favoritas:
@@ -18,17 +18,18 @@
     </table>
 
     <figure>
-        <img src="{{user.photo}}" alt="UserPhoto">
+        <img src="{{newUser.photo}}" alt="UserPhoto">
     </figure>
 
     {{#if isAdmin}}
-    <a href="/user/{{user._id}}/editar" class="btn btn-warning gap-3">Editar perfil</a>
-    <form action="/user/{{user._id}}/eliminar" method="POST">
+    <a href="/user/{{newUser._id}}/editar" class="btn btn-warning gap-3">Editar perfil</a>
+    <form action="/user/{{newUser._id}}/eliminar" method="POST">
         <input type="submit" value="Borrar perfil" class="btn btn-danger gap-3 mt-2">
     </form>
     {{/if}}
 
     {{#if isUser}}
-    <a href="/user/{{user._id}}/editar" class="btn btn-warning gap-3">Editar perfil</a>
+    <a href="/user/{{newUser._id}}/editar" class="btn btn-warning gap-3">Editar perfil</a>
     {{/if}}
+
 </div>

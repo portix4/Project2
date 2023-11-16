@@ -5,11 +5,11 @@ const User = require('./../models/User.model')
 
 const { isLoggedIn } = require("./../middleware/route-guard")
 
-router.post(('/crear/:movieApiId'), isLoggedIn, (req, res, next) => {
+router.post(('/crear/:movieApiId/:moviePoster'), isLoggedIn, (req, res, next) => {
 
     const { movieTitle, place, latitude, longitude, date, description } = req.body
 
-    const { movieApiId } = req.params
+    const { movieApiId, moviePoster } = req.params
 
     const location = {
         type: 'Point',
@@ -20,21 +20,21 @@ router.post(('/crear/:movieApiId'), isLoggedIn, (req, res, next) => {
 
 
     Event
-        .create({ movieTitle, movieApiId, place, location, date, description, createdBy })
+        .create({ movieTitle, movieApiId, moviePoster, place, location, date, description, createdBy })
         .then(() => res.redirect('/evento/listado'))
         .catch(error => next(error))
 })
 
 
-router.get(('/crear/:id/:title'), isLoggedIn, (req, res, next) => {
+router.get(('/crear/:id/:title/:poster'), isLoggedIn, (req, res, next) => {
 
-    const { id, title } = req.params
+    const { id, title, poster } = req.params
 
-    res.render('moviesevents/create', { id, title })
+    res.render('moviesevents/create', { id, title, poster })
 })
 
 
-router.get(('/listado'), (req, res, next) => {
+router.get(('/listado'), isLoggedIn, (req, res, next) => {
 
     Event
         .find()
@@ -43,14 +43,26 @@ router.get(('/listado'), (req, res, next) => {
 })
 
 
-router.get(('/detalle/:id'), (req, res, next) => {
+router.get(('/detalle/:id'), isLoggedIn, (req, res, next) => {
 
     const { id } = req.params
+    const { _id: userID } = req.session.currentUser
 
     Event
         .findById(id)
         .populate('createdBy attendees')
-        .then(event => res.render('moviesevents/details', event))
+        .then(event => res.render('moviesevents/details', { event, userID }))
+        .catch(error => next(error))
+})
+
+router.post(('/irEvento/:idEvent'), isLoggedIn, (req, res, next) => {
+
+    const { _id: userId } = req.session.currentUser
+    const { idEvent } = req.params
+
+    Event
+        .findByIdAndUpdate(idEvent, { $addToSet: { attendees: userId } })
+        .then(() => res.redirect(`/evento/detalle/${idEvent}`))
         .catch(error => next(error))
 })
 
