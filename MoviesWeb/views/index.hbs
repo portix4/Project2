@@ -2,27 +2,54 @@
     ULTIMOS ESTRENOS
 </div>
 <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+
     <div class="carousel-inner">
+
         <div class="carousel-item active">
             <div class="carousel-text">
-                1
+                {{marquee.[0].title}}
+                <div class="container ">
+                    <div class="card bg-transparent h-75 border-0">
+                        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{marquee.[0].poster_path}}">
+                    </div>
+                </div>
             </div>
-            <img src="#" class="d-block w-100" alt="Primera Imagen Nuevo Estreno">
+            <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{marquee.[0].poster_path}}"
+                class="d-block w-100" alt="{{marquee.[0].title}} poster image">
         </div>
         <div class="carousel-item">
             <div class="carousel-text">
-                2
+                {{marquee.[1].title}}
+                <div class="container ">
+                    <div class="card bg-transparent h-75 border-0">
+                        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{marquee.[1].poster_path}}"
+                            class="d-block w-100" alt="{{marquee.[1].title}} poster image">
+                    </div>
+                </div>
             </div>
-            <img src="#" class="d-block w-100" alt="Segunda Imagen Nuevo Estreno">
+            <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{marquee.[1].poster_path}}"
+                class="d-block w-100" alt="{{marquee.[1].title}} poster image">
         </div>
         <div class="carousel-item">
             <div class="carousel-text">
-                3
+                {{marquee.[2].title}}
+                <div class="container ">
+                    <div class="card bg-transparent h-75 border-0">
+                        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{marquee.[2].poster_path}}">
+                    </div>
+                </div>
             </div>
-            <img src="/images/marvelex.jpeg" class="d-block w-100" alt="Tercera Imagen Nuevo Estreno">
+            <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{marquee.[2].poster_path}}"
+                class="d-block w-100" alt="Segunda Imagen Nuevo Estreno">
         </div>
     </div>
 </div>
+
+
+
+
+
+
 <div class="container">
     <div class="trading mt-5">
         <h2>Cine en tendencia <span class="arrowsect"> ></span></h2>
@@ -70,3 +97,26 @@
 
             </div>
         </div>
+        <div class="container">
+            <div class="trading mt-5">
+                <h2>Proximamemente <span class="arrowsect"> ></span></h2>
+                <div class="row">
+                    {{#each upcomingMedia}}
+                    <div class="col-md-2">
+                        <div class="card bg-transparent h-75 border-0">
+                            <img class="card-img-top"
+                                src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{poster_path}}"
+                                alt="poster-{{this.title}}">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">{{name}}</h6>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 text-center">
+                                <a href="/movie/detalle/{{this.id}}" class="btn btn-outline-info" role="button">Ver
+                                    Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+
+                </div>
+            </div>

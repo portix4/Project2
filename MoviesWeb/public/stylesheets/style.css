@@ -12,7 +12,7 @@
 }
 
 footer {
-  background-color: #212529;
+  background-color: #0C2D41;
   color: rgb(255, 255, 255);
   position: fixed;
   bottom: 0;
@@ -50,7 +50,7 @@ footer {
 .carousel-inner img {
   height: 400px;
   object-fit: cover;
-  object-position: top;
+  object-position: 50% 50%;
 }
 
 .carousel-text {
