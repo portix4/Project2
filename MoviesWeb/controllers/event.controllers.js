@@ -1,4 +1,5 @@
 const Event = require('./../models/Event.model')
+const dateEvent = require('./../utils/date.utils')
 
 const postMovieCreate = (req, res, next) => {
 
@@ -31,7 +32,17 @@ const getMovieList = (req, res, next) => {
 
     Event
         .find()
-        .then(events => res.render('moviesevents/list', { events }))
+        .then(allEvents => {
+            const events = allEvents.map(event => {
+                return {
+                    ...event._doc,
+                    newDate: dateEvent.formatDate(event.date)
+                }
+            })
+            res.render('moviesevents/list', {
+                events
+            })
+        })
         .catch(error => next(error))
 }
 
@@ -43,7 +54,11 @@ const getMovieDetail = (req, res, next) => {
     Event
         .findById(id)
         .populate('createdBy attendees')
-        .then(event => res.render('moviesevents/details', { event, userID }))
+        .then(event => res.render('moviesevents/details', {
+            isAdmin: req.session.currentUser.role === 'ADMIN',
+            event,
+            userID
+        }))
         .catch(error => next(error))
 }
 
@@ -58,10 +73,21 @@ const goToEvent = (req, res, next) => {
         .catch(error => next(error))
 }
 
+const eliminateEvent = (req, res, next) => {
+
+    const { id } = req.params
+
+    Event
+        .findByIdAndDelete(id)
+        .then(() => res.redirect('/evento/listado'))
+        .catch(error => next(error))
+}
+
 module.exports = {
     postMovieCreate,
     getMovieCreate,
     getMovieList,
     getMovieDetail,
-    goToEvent
+    goToEvent,
+    eliminateEvent
 }
