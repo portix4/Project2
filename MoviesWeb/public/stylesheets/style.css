@@ -87,3 +87,16 @@ section.randomSection {
   margin-top: 10%;
   margin-bottom: 10%;
 }
+
+.cardEvent img {
+  height: 500px;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.card-header {
+  text-align: center;
+}

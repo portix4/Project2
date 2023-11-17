@@ -1,42 +1,36 @@
 <div class="container mt-5">
     <h2>Detalle evento</h2>
     <hr>
-
-    <div class="row">
-
-        <div class="col-md-6">
-            <h3>Película: {{movieTitle}}</h3>
-            <p>Lugar del evento: {{place}}</p>
-            <time datetime="{{date}}">{{date}}</time>
-
-            <p>Descripción del evento: {{event.description}}</p>
-
-            <a href="/user/{{userID}}">
-                <p>Created by {{event.createdBy.username}}</p>
-            </a>
-
-            <p>Asistentes al evento</p>
-            <ul>
-                {{#each event.attendees}}
-                <li>{{username}}</li>
-                {{/each}}
-            </ul>
-
-            <p>Usuario actual: {{userID}}</p>
-            <p>Id evento {{event.id}}</p>
-
-            <form action="/evento/irEvento/{{event.id}}" method="POST">
-                <button type="submit" class="btn btn-outline-info ms-1">Ir a evento </button>
-            </form>
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <div class="card bg-light mb-3 cardEvent" style="max-width: 40rem;">
+                <div class="card-header">Evento para ver {{event.movieTitle}}</div>
+                <div class="card-body">
+                    <figure>
+                        <a href="/movie/detalle/{{event.movieApiId}}"><img
+                                src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{event.moviePoster}}"
+                                class="card-img"></a>
+                    </figure>
+                    <p class="card-text">Lugar: {{event.place}}</p>
+                    <p class="card-text">Fecha: {{event.date}}</p>
+                    <p class="card-text">Descripción: {{event.description}}</p>
+                    <p>Creado por <a href="/user/{{userID}}">{{event.createdBy.username}}</a></p>
+                    <p>Asistentes al evento</p>
+                    <ul>
+                        {{#each event.attendees}}
+                        <li><a href="/user/{{id}}">{{username}}</a></li>
+                        {{/each}}
+                    </ul>
+                    <form action="/evento/irEvento/{{event.id}}" method="POST">
+                        <button type="submit" class="btn btn-outline-info ms-1">Apuntarse al evento</button>
+                    </form>
+                    {{#if isAdmin}}
+                    <form action="/evento/eliminar/{{event.id}}" method="POST">
+                        <button type="submit" class="btn btn-warning ms-1">Eliminar evento</button>
+                    </form>
+                    {{/if}}
+                </div>
+            </div>
         </div>
-
-        <div class="col-md-6">
-            <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{event.moviePoster}}" class="card-img">
-        </div>
-
-
     </div>
-
-
-
 </div>

@@ -5,7 +5,8 @@ const {
     getMovieCreate,
     getMovieList,
     getMovieDetail,
-    goToEvent
+    goToEvent,
+    eliminateEvent
 } = require('./../controllers/event.controllers')
 
 const { isLoggedIn } = require("./../middleware/route-guard")
@@ -19,6 +20,8 @@ router.get(('/listado'), isLoggedIn, getMovieList)
 router.get(('/detalle/:id'), isLoggedIn, getMovieDetail)
 
 router.post(('/irEvento/:idEvent'), isLoggedIn, goToEvent)
+
+router.post(('/eliminar/:id'), eliminateEvent)
 
 
 module.exports = router

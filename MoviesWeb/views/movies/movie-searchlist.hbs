@@ -3,13 +3,11 @@
         {{#each movies}}
         <div class="col">
             <div class="card bg-transparent h-75 border-0">
-                <img class="card-img-top" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{poster_path}}"
-                    alt="Card image cap">
+                <a href="/movie/detalle/{{id}}">
+                    <img class="card-img-top" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{poster_path}}"
+                        alt="Card image cap"></a>
                 <div class="card-body text-center">
                     <h6 class="card-title">{{title}}</h6>
-                </div>
-                <div class="card-footer bg-transparent border-0 text-center">
-                    <a href="/movie/detalle/{{id}}" class="btn btn-outline-info" role="button">Ver Detalles</a>
                 </div>
             </div>
         </div>
