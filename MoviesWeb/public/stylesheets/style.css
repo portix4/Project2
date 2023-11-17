@@ -51,16 +51,18 @@ footer {
   height: 400px;
   object-fit: cover;
   object-position: 50% 50%;
+
 }
 
 .carousel-text {
   position: absolute;
-  top: 25%;
-  left: 13%;
+  top: 1%;
+  left: 3%;
   z-index: 2;
   color: #fff;
   font-size: 24px;
   font-weight: bold;
+  padding: 0% 10%;
 }
 
 p.descriptionMovie {
@@ -79,4 +81,9 @@ section.randomSection {
   width: 100%;
   background-color: black;
   position: fixed;
+}
+
+.image-container {
+  margin-top: 10%;
+  margin-bottom: 10%;
 }

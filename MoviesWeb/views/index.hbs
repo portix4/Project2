@@ -2,42 +2,62 @@
     ULTIMOS ESTRENOS
 </div>
 <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
+    <div class="carousel-inner ">
         <div class="carousel-item active">
             <div class="carousel-text">
-                {{marquee.[0].title}}
-                <div class="container ">
-                    <div class="card bg-transparent h-75 border-0">
-                        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{marquee.[0].poster_path}}">
+                <div class="card bg-transparent h-75 border-0">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{marquee.[0].poster_path}}"
+                                style="padding: 7%;">
+                        </div>
+                        <div class="col-6" style="padding: 5%;">
+                            <p>{{marquee.[0].title}}</p>
+                            <h4>{{marquee.[0].overview}}</h4>
+                        </div>
                     </div>
+
+
                 </div>
             </div>
+
             <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{marquee.[0].poster_path}}"
                 class="d-block w-100" alt="{{marquee.[0].title}} poster image">
         </div>
         <div class="carousel-item">
             <div class="carousel-text">
-                {{marquee.[1].title}}
-                <div class="container ">
-                    <div class="card bg-transparent h-75 border-0">
-                        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{marquee.[1].poster_path}}"
-                            class="d-block w-100" alt="{{marquee.[1].title}} poster image">
-                    </div>
-                </div>
-            </div>
-            <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{marquee.[1].poster_path}}"
-                class="d-block w-100" alt="{{marquee.[1].title}} poster image">
-        </div>
-        <div class="carousel-item">
-            <div class="carousel-text">
-                {{marquee.[2].title}}
-                <div class="container ">
-                    <div class="card bg-transparent h-75 border-0">
-                        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{marquee.[2].poster_path}}">
+                <div class="card bg-transparent h-75 border-0">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{marquee.[2].poster_path}}"
+                                style="padding: 7%;">
+                        </div>
+                        <div class="col-6" style="padding: 5%;">
+                            <p>{{marquee.[2].title}}</p>
+                            <h4>{{marquee.[2].overview}}</h4>
+                        </div>
                     </div>
                 </div>
             </div>
             <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{marquee.[2].poster_path}}"
+                class="d-block w-100" alt="{{marquee.[2].title}} poster image">
+        </div>
+        <div class="carousel-item">
+            <div class="carousel-text">
+                <div class="card bg-transparent h-75 border-0">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{marquee.[4].poster_path}}"
+                                style="padding: 7%;">
+                        </div>
+                        <div class="col-6" style="padding: 5%;">
+                            <p>{{marquee.[4].title}}</p>
+                            <h4>{{marquee.[4].overview}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{marquee.[4].poster_path}}"
                 class="d-block w-100" alt="Segunda Imagen Nuevo Estreno">
         </div>
     </div>
@@ -80,6 +100,8 @@
         </div>
     </div>
 </div>
+
+
 <div class="container mb-5">
     <div class="trading mt-5">
         <h2>Proximamemente <span class="arrowsect"> ></span></h2>

@@ -11,7 +11,7 @@ const apiPromiseHome = (req, res, next) => {
     ).then(([movies, series, billboard, upcoming]) => {
         const fiveMovies = movies.data.results.slice(0, 6)
         const topRated = series.data.results.slice(0, 6)
-        const marquee = billboard.data.results.slice(0, 3)
+        const marquee = billboard.data.results.slice(0, 5)
         const upcomingMedia = upcoming.data.results.slice(0, 6)
         res.render('index', { fiveMovies, topRated, marquee, upcomingMedia })
     })
